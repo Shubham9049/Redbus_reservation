@@ -10,5 +10,61 @@
     background-repeat: no-repeat;
     /* border: 2px solid black; */
     overflow: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     
 }
+.main form{
+    width: 60%;
+    height: 80px;
+   /* border: 2px solid black; */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+background-color: rgba(158, 153, 153, 0.5);
+border-radius: 8px;
+
+    
+}
+.main form label{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 5px;
+
+   
+    
+}
+.main form label input{
+    padding: 10px 20px;
+    
+    border-radius: 5px;
+    /* outline: none; */
+    border: none;
+
+   
+    
+}
+.main form button{
+    padding: 11px 10px;
+   margin-left: 5px;
+   font-size: 15px;
+   font-weight: bold;
+   border-radius: 5px;
+   border: none;
+   background-color: rgba(255, 67, 0,1);
+   color: #fff;
+   transition: 0.3s;
+    
+}
+.main form button:hover{
+   color:black ;
+    
+}
+.main form button:active{
+    transform: scale3d(0.9,0.9,0.9);
+}
+
