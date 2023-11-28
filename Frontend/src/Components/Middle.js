@@ -1,5 +1,5 @@
 import React from "react";
-import "../Components/Middle.css";
+import "../styles/Middle.css";
 import bus from "../Images/box1.png";
 import people from "../Images/box2.png";
 import ticket from "../Images/box3.jpg";
@@ -76,6 +76,7 @@ function Middle() {
           </div>
         </div>
       </div>
+      <div className="blank"></div>
     </>
   );
 }
