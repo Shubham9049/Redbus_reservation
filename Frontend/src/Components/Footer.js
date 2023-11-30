@@ -4,6 +4,7 @@ import logo from "../Images/logo.png"
 import { IoLogoInstagram } from "react-icons/io";
 import { FaFacebook } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
+import { TfiEmail } from "react-icons/tfi";
 function footer() {
   return (
   <>
@@ -16,7 +17,7 @@ function footer() {
      <p>When you have a choice.Choose Reserve</p>
      <p>Reserve offer bus tickets booking through its website,IOS,and androids <br /> 
      mobile apps for all majnoar cities</p>
-     <a href="/#">shubham.rajveer19@gmail.com</a>
+     <a href="/#">shubham.rajveer19@gmail.com <span><TfiEmail/></span> </a>
     </div>
     <div className="box2">
 <div className="about">

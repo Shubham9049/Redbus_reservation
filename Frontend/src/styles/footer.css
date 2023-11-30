@@ -34,12 +34,23 @@ footer .box1{
     font-size: 28px;
     font-weight: bold;
     margin-top: 40px;
+    color: #ff0000;
 }
 
 footer .box1 p{
     font-size: 18px;
     text-align: center;
     color: #343e4d;
+}
+footer .box1 a{
+    /* border: 2px solid black; */
+    color: #343e4d;
+    
+   
+}
+footer .box1 a span{
+    /* border: 2px solid black; */
+    
 }
 footer .box2{
     width: 50%;
