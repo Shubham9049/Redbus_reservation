@@ -34,9 +34,7 @@ border-radius: 8px;
     font-size: 25px;
     font-weight: bold;
     margin-left: 5px;
-
    
-    
 }
 .main form label input{
     padding: 10px 20px;
@@ -44,6 +42,20 @@ border-radius: 8px;
     border-radius: 5px;
     /* outline: none; */
     border: none;
+
+   
+    
+}
+.main form label ul {
+    width: 80px;
+    height: 20vh;
+
+   
+    
+}
+.main form label ul li{
+    font-size: 20px;
+    list-style: none;
 
    
     

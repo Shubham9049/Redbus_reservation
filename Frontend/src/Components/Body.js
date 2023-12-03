@@ -1,6 +1,8 @@
 import React from "react";
 import { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Body.css";
+import Middle from './Middle';
 
 function Body() {
   const [fromLocation, setFromLocation] = useState("");
@@ -9,6 +11,7 @@ function Body() {
   const [suggestionsFrom, setSuggestionsFrom] = useState([]);
   const [suggestionsTo, setSuggestionsTo] = useState([]);
   const [locationData, setLocationData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch location suggestions when the component mounts
@@ -60,9 +63,10 @@ const handleInputChange = (input, setSuggestions) => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }else{
         window.alert("Data fetched successfully")
+        navigate(`/bus/${fromLocation}/${toLocation}/${journeyDate}`);
       }
       const data = await response.json();
-      console.log("API Response:", data);
+      console.log("API Response in Body:", data);
       setFromLocation("");
       setToLocation("");
       setJourneyDate("");
@@ -79,12 +83,14 @@ const handleInputChange = (input, setSuggestions) => {
   };
   return (
     <>
+    
       <div className="main">
         <form onSubmit={handleFormSubmit}>
           <label>
             From:
             <input
               type="text"
+              placeholder="From"
               value={fromLocation}
               onChange={(e) => {
                 setFromLocation(e.target.value);
@@ -112,6 +118,7 @@ const handleInputChange = (input, setSuggestions) => {
             To:
             <input
               type="text"
+              placeholder="To"
               value={toLocation}
               onChange={(e) =>{ 
                 setToLocation(e.target.value);
@@ -147,6 +154,7 @@ const handleInputChange = (input, setSuggestions) => {
           <button type="submit">Search</button>
         </form>
       </div>
+      <Middle />
     </>
   );
 }

@@ -1,18 +1,26 @@
 import './App.css';
+import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 import Navbar from '../src/Components/Navbar';
 import Body from './Components/Body';
-import Middle from './Components/Middle';
-import Footer from './Components/Footer'
+
+import Footer from './Components/Footer';
+import BusPage from './Components/BusPage'; 
 
 function App() {
   return (
-    <>
-    <Navbar></Navbar>
-    <Body></Body>
-    <Middle></Middle>
-    <Footer></Footer>
+    <Router>
+      <>
+      <>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Body />} />
+          <Route path="/bus/:fromLocation/:toLocation/:journeyDate" element={<BusPage />} />
+        </Routes>
        
-    </>
+        <Footer />
+      </>
+      </>
+    </Router>
   );
 }
 

@@ -1,0 +1,131 @@
+.Bus-list{
+    width: 100%;
+    height: auto;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+    
+
+}
+
+.Bus-list .filer-item{
+    width: 20%;
+    height: 100vh;
+    border: 2px solid rgb(221, 34, 34);
+}
+.Bus-list .list{
+    width: 80%;
+    height: auto;
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+}
+.Bus-list .list div{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid #7e7e8c; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Bus-list .list div ul{
+    width: 100%;
+    display: flex;
+    /* border: 2px solid rgb(0, 87, 128); */
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+
+  } 
+.Bus-list .list div ul li{
+    width: 95%;
+    height: 30vh;
+    display: flex;
+    margin-top: 20px;
+    border: 2px solid #7e7e8c;
+    align-items: center;
+    border-radius: 8px;
+  } 
+.Bus-list .list div ul li .name{
+    width: 20%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid green; */
+    font-size: 18px;
+    font-weight: bold;
+    color: #3e3e52;
+  } 
+.Bus-list .list div ul li .name span{
+   font-size: 16px;
+   font-weight: normal;
+   color: #7e7e8c;
+  } 
+
+.Bus-list .list div ul li .start-time{
+    width: 20%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid green; */
+    font-size: 18px;
+    font-weight: bold;
+    color: #3e3e52;
+    
+  } 
+.Bus-list .list div ul li .start-time span{ 
+    font-size: 13px;
+    font-weight: normal;
+    color: #7e7e8c;
+  } 
+.Bus-list .list div ul li .end-time{
+    width: 20%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid green; */
+    font-size: 18px;
+    font-weight: bold;
+    color: #3e3e52;
+  } 
+.Bus-list .list div ul li .end-time span{
+    font-size: 16px;
+    font-weight: normal;
+    color: #7e7e8c;
+  } 
+.Bus-list .list div ul li .bus-no{
+    width: 20%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid green; */
+    font-size: 18px;
+    font-weight: bold;
+    color: #3e3e52;
+  } 
+.Bus-list .list div ul li .bus-no span{
+    font-size: 16px;
+    font-weight: normal;
+    color: #7e7e8c;
+  } 
+.Bus-list .list div ul li .fare{
+    width: 20%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid green; */
+    font-size: 18px;
+    font-weight: bold;
+    color: #3e3e52;
+  } 
+.Bus-list .list div ul li .fare span{
+    font-size: 16px;
+    font-weight: normal;
+    color: #7e7e8c;
+  } 
+
+
+  .heading{
+    margin-top: 0;
+  }
