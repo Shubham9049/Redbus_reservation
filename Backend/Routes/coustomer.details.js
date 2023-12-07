@@ -20,7 +20,7 @@ client.get("/api/bookings", async (req, res) => {
 
 // Handle booking request
 client.post("/api/bookings", async (req, res) => {
-  const { BusId, seat, date } = req.body;
+  const { BusId, seat, date,name,age,Phone } = req.body;
   const db = getDb();
   try {
     // Fetch the bus details to determine the route
@@ -39,12 +39,15 @@ client.post("/api/bookings", async (req, res) => {
       route,
       seat,
       date,
+      name,
+      age,
+      Phone,
       // Other booking details...
     });
 
     console.log(`Booking inserted with ID: ${result.insertedId}`);
 
-    res.status(200).json({ success: true, route });
+    res.status(200).json({ success: true, route,name });
   } catch (error) {
     console.error("Error processing booking:", error);
     res.status(500).json({ success: false, error: "Internal Server Error" });

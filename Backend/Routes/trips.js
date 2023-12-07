@@ -5,7 +5,7 @@ let db
 
 // get all the trip
 
-routes.get("/alltrip", async (req,res)=>{
+routes.get("/buslist", async (req,res)=>{
     db=getDb()
       try {
         const collection=db.collection("books")
@@ -17,18 +17,27 @@ routes.get("/alltrip", async (req,res)=>{
       }
     })
     // Get list of buses running between specified route
-    routes.get('/books', async (req, res) => {
-      const { from, to,date } = req.query;
-      db=getDb()
+    routes.get('/allbuses', async (req, res) => {
+      const { from, to, date } = req.query;
+      db = getDb();
+    
       try {
-        // If both 'from' and 'to' are provided, search for buses on the route
-        if (from && to) {
-          const collection=db.collection("books")
-          const busesOnRoute = await collection.find({ from, to,date }).toArray();
+        // If both 'from', 'to', and 'date' are provided, search for buses on the route
+        if (from && to && date) {
+          const collection = db.collection("books");
+          const query = {
+            from,
+            to,
+            "schedule.startDate": { $lte: date }, // Check if the bus starts on or before the specified date
+            "schedule.endDate": { $gte: date } ,   // Check if the bus runs on or after the specified date
+            "schedule.daysOfWeek": new Date(date).toLocaleDateString('en-US', { weekday: 'long' })
+          };
+    
+          const busesOnRoute = await collection.find(query).toArray();
           res.json(busesOnRoute);
         } else {
-          // If only one of them is provided, return an error
-          res.status(400).json({ error: 'Both "from" and "to" parameters are required for searching buses.' });
+          // If any of them is missing, return an error
+          res.status(400).json({ error: 'Both "from", "to", and "date" parameters are required for searching buses.' });
         }
       } catch (error) {
         res.status(500).json({ error: error.message });

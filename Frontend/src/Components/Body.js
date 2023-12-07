@@ -18,6 +18,7 @@ function Body() {
     fetchLocationSuggestions(''); // Initial fetch with empty query
   },[]);
 
+  // suggestion handel for search location input
 const fetchLocationSuggestions=async ()=>{
   try {
     const response= await fetch(`http://localhost:5000/red/city`)
@@ -34,7 +35,7 @@ const fetchLocationSuggestions=async ()=>{
     console.error('Error fetching location suggestions:', error);
   }
 }
-
+// suggestion handel for search location input
 const handleInputChange = (input, setSuggestions) => {
   setSuggestions([]);
   if (input.trim().length >= 2) {
@@ -52,12 +53,12 @@ const handleInputChange = (input, setSuggestions) => {
   }
 };
 
-
+// Get list of buses running between specified route
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/red/books?from=${fromLocation}&to=${toLocation}&date=${journeyDate}`
+        `http://localhost:5000/red/allbuses?from=${fromLocation}&to=${toLocation}&date=${journeyDate}`
       );
       if (!response) {
         throw new Error(`HTTP error! Status: ${response.status}`);

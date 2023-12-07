@@ -45,12 +45,10 @@ footer .box1 p{
 footer .box1 a{
     /* border: 2px solid black; */
     color: #343e4d;
+    display: flex;
+    align-items: center;
     
    
-}
-footer .box1 a span{
-    /* border: 2px solid black; */
-    
 }
 footer .box2{
     width: 50%;

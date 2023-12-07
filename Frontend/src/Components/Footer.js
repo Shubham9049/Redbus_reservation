@@ -17,7 +17,7 @@ function footer() {
      <p>When you have a choice.Choose Reserve</p>
      <p>Reserve offer bus tickets booking through its website,IOS,and androids <br /> 
      mobile apps for all majnoar cities</p>
-     <a href="/#">shubham.rajveer19@gmail.com <span><TfiEmail/></span> </a>
+     <a href="/#">shubham.rajveer19@gmail.com<TfiEmail/></a>
     </div>
     <div className="box2">
 <div className="about">
