@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {  useParams } from "react-router-dom";
 import "../styles/SeatSelection.css"; // You can create a separate CSS file
 import { MdOutlineAirlineSeatReclineExtra } from "react-icons/md";
+import {loadStripe} from '@stripe/stripe-js';
 
 
 const SeatSelection = () => {
@@ -12,6 +13,8 @@ const SeatSelection = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
+
+     
 
   const handleSeatClick = (seat) => {
     // Toggle seat selection
@@ -30,7 +33,8 @@ const SeatSelection = () => {
       date: (date), // Replace with your logic to get the date
       name,
       age: parseInt(age), // Assuming age is a number
-      Phone: parseInt(phone), // Assuming phone is a number
+      Phone: parseInt(phone),
+       // Assuming phone is a number
     };
 
     try {
@@ -42,19 +46,49 @@ const SeatSelection = () => {
         body: JSON.stringify(bookingData),
       });
 
-      if (response.ok) {
-        console.log("Booking successful!");
-        alert("Booking successful!");
-        
-      } else {
-        console.error("Booking failed:", response.statusText);
-        // Handle booking failure
+      if (!response.ok) {
+        throw new Error("Booking failed");
+      }else{
+        alert("Booking successfully")
       }
+
+      // Booking successful, proceed to payment
+      // Create a session on the server to initiate the payment
+      const sessionResponse=await fetch("http://localhost:5000/red/api/create-checkout-session",{
+        method:"POST",
+        headers:{
+          'Content-type':'application/json'
+        },
+        body:JSON.stringify({busOwnerId: busOwnerID,
+          seats: selectedSeats,})
+        })
+        
+        const session = await sessionResponse.json();
+        
+        // Redirect to Stripe checkout page
+        const stripe = await loadStripe("pk_test_51ON9x4SAOdIw0ELH4i3JjHHngq91K3KftB5NGPvXnvL8tvxMON0ppiZRaylTURlzLGmNZ1AzlRLairSkNKCGtX7b00AjBoSCaO");
+        const { error } = await stripe.redirectToCheckout({
+          sessionId: session.id,
+        });
+  
+        if (error) {
+          console.error('Error redirecting to checkout:', error.message);
+        }
+
+
+
     } catch (error) {
       console.error("Error making booking:", error.message);
       // Handle network error
     }
+     
+     
+     
+            
+      
   };
+
+  
 
   return (
     <div className="seat-selection-container">

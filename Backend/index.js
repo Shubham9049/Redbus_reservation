@@ -3,6 +3,7 @@ const express=require("express")
 const {routes}=require("./Routes/trips")
 const {city}=require("./Routes/City")
 const {client}=require("./Routes/coustomer.details")
+const {payment}=require("./Routes/Payment")
 
 const cors=require("cors")
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/red",routes)
 app.use("/red",city)
 app.use("/red",client)
+app.use("/red",payment)
 
 
 
